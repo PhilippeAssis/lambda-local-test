@@ -1,28 +1,45 @@
 {
   "name": "lambda-local-test",
-  "version": "0.0.1",
-  "description": "Lambda test",
+  "version": "0.1.0",
+  "description": "Lambda local test",
   "main": "src/lambda.js",
   "bin": {
-    "lambdatest": "./bin/index.js"
+    "lambda-local-test": "index.js"
+  },
+  "directories": {
+    "test": "test"
   },
   "dependencies": {
     "colors": "^1.1.2",
+    "eslint-config-standard": "^10.2.1",
     "eslint": "^4.10.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "simple-flags": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^4.10.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
     "mocha": "^4.0.1"
   },
   "scripts": {
     "test": "mocha"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilippeAssis/lambda-local-test.git"
+  },
+  "keywords": [
+    "lambda",
+    "local",
+    "test",
+    "aws",
+    "console"
+  ],
+  "author": "Philippe Assis <assis@philippeassis.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhilippeAssis/lambda-local-test/issues"
+  },
+  "homepage": "https://github.com/PhilippeAssis/lambda-local-test#readme"
 }
