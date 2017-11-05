@@ -1,9 +1,26 @@
 # lambda-local-test
-Teste localmente sua função *aws lambda* com `lambdatest`
+Test locally its function * aws lambda * with `lambdatest`
+![Lambda local test](https://raw.githubusercontent.com/PhilippeAssis/lambda-local-test/master/demo.png)
 
-## No console
-```bash
-lambdatest index.js
+## Install
+### global
+```
+npm i -g lambda-local-test
+```
+### local dev
+```
+npm i --save-dev lambda-local-test
 ```
 
-![Lambda-local-test](demo.png)
+## On console
+```bash
+lambdatest index.js -event event.json
+```
+
+## On code
+```javascript
+const lambda = require('lambda-local-test')
+const myFunction = require('./myFunction')
+
+lambda(myFunction, 'handler', { name: 'Philippe', lastName: 'Assis'})
+```

@@ -19,8 +19,8 @@ if (!('toJSON' in error.prototype)) {
 
 const timeLabel = 'Lambda time'.bold.bgMagenta
 
-const lambda = (file, handler, event = {}, context = {}, callback) => {
-  const lbFile = require(file)[handler]
+const lambda = (func, handler, event = {}, context = {}, callback) => {
+  const lbFile = func[handler]
   console.time(timeLabel)
   console.log('-----------------------------------'.yellow.bold)
   console.log('---------Lambda Local Test---------'.yellow.bold)

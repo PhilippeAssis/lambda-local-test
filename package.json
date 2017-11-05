@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "Lambda test",
   "main": "src/lambda.js",
-  "bin" : {
-    "lambdatest" : "./bin/index.js"
+  "bin": {
+    "lambdatest": "./bin/index.js"
   },
   "dependencies": {
     "colors": "^1.1.2",
     "eslint": "^4.10.0",
-    "simple-flags": "^1.1.0"
+    "simple-flags": "^1.2.2"
   },
   "devDependencies": {
     "eslint": "^4.10.0",

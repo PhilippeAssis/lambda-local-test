@@ -5,25 +5,31 @@ const path = require('path')
 
 const opt = flags({
   args: ['file', 'handler'],
-  event: {
-    aliases: ['e']
-  },
-  eventInLine: {
-    aliases: ['el']
-  },
-  context: {
-    aliases: ['c', 'ctx']
-  },
-  contextInLine: {
-    aliases: ['cl']
+  file: {
+    aliases: ['f'],
+    default: 'index.js',
+    description: 'Lambda function file'
   },
   handler: {
     aliases: ['h'],
-    default: 'handler'
+    default: 'handler',
+    description: 'Function to be executed'
   },
-  file: {
-    aliases: ['f'],
-    default: 'index.js'
+  event: {
+    aliases: ['e'],
+    description: 'Json file with to be sent in the event parameter'
+  },
+  context: {
+    aliases: ['c', 'ctx'],
+    description: 'Json file with to be sent in the context parameter'
+  },
+  eventInLine: {
+    aliases: ['el'],
+    description: 'Json in line to be sent in the event parameter'
+  },
+  contextInLine: {
+    aliases: ['cl'],
+    description: 'Json in line to be sent in the event parameter'
   }
 })
 
@@ -31,7 +37,7 @@ function transformProps (prop, inLine, obj) {
   var result = {}
 
   if (obj[inLine]) {
-    result = obj[inLine]
+    result = JSON.parse(obj[inLine])
   } else if (obj[prop]) {
     result = require(path.resolve(process.cwd(), obj[prop]))
   }
@@ -41,7 +47,7 @@ function transformProps (prop, inLine, obj) {
 
 opt.event = transformProps('event', 'eventInLine', opt)
 opt.context = transformProps('context', 'contextInLine', opt)
-opt.file = path.resolve(process.cwd(), opt.file)
+opt.file = require(path.resolve(process.cwd(), opt.file))
 
 const { file, handler, event, context } = opt
 
