@@ -1,0 +1,28 @@
+{
+  "name": "lambda-local-test",
+  "version": "0.0.1",
+  "description": "Lambda test",
+  "main": "src/lambda.js",
+  "bin" : {
+    "lambdatest" : "./bin/index.js"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "eslint": "^4.10.0",
+    "simple-flags": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
