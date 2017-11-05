@@ -1,5 +1,4 @@
 require('colors')
-
 var error = Error
 
 if (!('toJSON' in error.prototype)) {

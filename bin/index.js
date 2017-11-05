@@ -1,5 +1,7 @@
+#!/usr/bin/env node
 const flags = require('simple-flags')
 const lambda = require('./../src/lambda')
+const path = require('path')
 
 const opt = flags({
   args: ['file', 'handler'],
@@ -17,7 +19,7 @@ const opt = flags({
   },
   handler: {
     aliases: ['h'],
-    default: 'index.handler'
+    default: 'handler'
   },
   file: {
     aliases: ['f'],
@@ -25,20 +27,21 @@ const opt = flags({
   }
 })
 
-function transformProps (prop, other, obj) {
-  if (obj[other]) {
-    obj[prop] = obj[other]
+function transformProps (prop, inLine, obj) {
+  var result = {}
+
+  if (obj[inLine]) {
+    result = obj[inLine]
   } else if (obj[prop]) {
-    obj[prop] = require(obj[prop])
-  } else {
-    obj[prop] = {}
+    result = require(path.resolve(process.cwd(), obj[prop]))
   }
 
-  return obj
+  return result
 }
 
-opt.context = transformProps('event', 'eventInLine', opt)
-opt.event = transformProps('context', 'contextInLine', opt)
+opt.event = transformProps('event', 'eventInLine', opt)
+opt.context = transformProps('context', 'contextInLine', opt)
+opt.file = path.resolve(process.cwd(), opt.file)
 
 const { file, handler, event, context } = opt
 
