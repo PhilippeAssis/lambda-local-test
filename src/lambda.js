@@ -35,7 +35,7 @@ const lambda = (func, handler, event = {}, context = {}, callback) => {
     if (err) {
       console.log('\n\nerror: '.bgRed.bold + JSON.stringify(err, null, 2).bgRed + '\n'.bgRed)
     } else {
-      console.log('\n\nSuccess: '.bgGreen.bold + JSON.stringify(event, null, 2).bgGreen + '\n'.bgGreen)
+      console.log('\n\nSuccess: '.bgGreen.bold + JSON.stringify(data, null, 2).bgGreen + '\n'.bgGreen)
     }
 
     console.log('\n----------------END----------------\n'.yellow.bold)
