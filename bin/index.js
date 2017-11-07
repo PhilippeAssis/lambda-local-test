@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 const flags = require('simple-flags');
 const lambda = require('../index.js');
