@@ -1,4 +1,4 @@
-const lambda = require('../src/lambda')
+const lambda = require('../src')
 const event = require('./assets/event.json')
 const context = require('./assets/context.json')
 const handler = require('./assets/handler')

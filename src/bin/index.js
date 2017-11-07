@@ -1,9 +1,7 @@
 #!/usr/bin/env node
-'use strict';
-
-const flags = require('simple-flags');
-const lambda = require('../index.js');
-const path = require('path');
+const flags = require('simple-flags')
+const lambda = require('../index.js')
+const path = require('path')
 
 const opt = flags({
   args: ['file', 'handler'],
@@ -33,24 +31,24 @@ const opt = flags({
     aliases: ['cl'],
     description: 'Json in line to be sent in the event parameter'
   }
-});
+})
 
-function transformProps(prop, inLine, obj) {
-  var result = {};
+function transformProps (prop, inLine, obj) {
+  var result = {}
 
   if (obj[inLine]) {
-    result = JSON.parse(obj[inLine]);
+    result = JSON.parse(obj[inLine])
   } else if (obj[prop]) {
-    result = require(path.resolve(process.cwd(), obj[prop]));
+    result = require(path.resolve(process.cwd(), obj[prop]))
   }
 
-  return result;
+  return result
 }
 
-opt.event = transformProps('event', 'eventInLine', opt);
-opt.context = transformProps('context', 'contextInLine', opt);
-opt.file = require(path.resolve(process.cwd(), opt.file));
+opt.event = transformProps('event', 'eventInLine', opt)
+opt.context = transformProps('context', 'contextInLine', opt)
+opt.file = require(path.resolve(process.cwd(), opt.file))
 
-const { file, handler, event, context } = opt;
+const { file, handler, event, context } = opt
 
-lambda(file, handler, event, context);
+lambda(file, handler, event, context)

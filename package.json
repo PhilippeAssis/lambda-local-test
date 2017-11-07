@@ -2,7 +2,7 @@
   "name": "lambda-local-test",
   "version": "0.1.0",
   "description": "Lambda local test",
-  "main": "src/lambda.js",
+  "main": "index.js",
   "bin": {
     "lambda-local-test": "index.js"
   },
