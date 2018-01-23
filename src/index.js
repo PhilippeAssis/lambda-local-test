@@ -21,7 +21,7 @@ const timeLabel = 'Lambda time'.bold.bgMagenta
 
 const lambda = (func, handler, event = {}, context = {}, env = '.env', callback) => {
   require('dotenv').config({path: env})
-  console.log(env)
+
   const lbFile = func[handler]
   console.time(timeLabel)
   console.log('-----------------------------------'.yellow.bold)

@@ -32,6 +32,9 @@ const opt = flags({
   contextInLine: {
     aliases: ['cl'],
     description: 'Json in line to be sent in the event parameter'
+  },
+  env: {
+    description: 'Environment file'
   }
 });
 
@@ -51,6 +54,6 @@ opt.event = transformProps('event', 'eventInLine', opt);
 opt.context = transformProps('context', 'contextInLine', opt);
 opt.file = require(path.resolve(process.cwd(), opt.file));
 
-const { file, handler, event, context } = opt;
+const { file, handler, event, context, env } = opt;
 
-lambda(file, handler, event, context);
+lambda(file, handler, event, context, env);
