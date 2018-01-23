@@ -1,6 +1,6 @@
 {
   "name": "lambda-local-test",
-  "version": "0.1.5",
+  "version": "0.2.5",
   "description": "Lambda local test",
   "main": "index.js",
   "bin": {
