@@ -1,6 +1,6 @@
 {
   "name": "lambda-local-test",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Lambda local test",
   "main": "index.js",
   "bin": {
@@ -18,7 +18,7 @@
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "simple-flags": "^1.2.2"
+    "simple-flags": "^1.2.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

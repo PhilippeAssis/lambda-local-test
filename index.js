@@ -21,8 +21,12 @@ if (!('toJSON' in error.prototype)) {
 
 const timeLabel = 'Lambda time'.bold.bgMagenta;
 
-const lambda = (func, handler, event = {}, context = {}, env = '.env', callback) => {
+const lambda = (func, handler = 'handler', event = {}, context = {}, env = '.env', callback) => {
   require('dotenv').config({ path: env });
+
+  if (typeof func === 'string') {
+    func = require(func);
+  }
 
   const lbFile = func[handler];
   console.time(timeLabel);

@@ -50,7 +50,7 @@ function transformProps (prop, inLine, obj) {
 
 opt.event = transformProps('event', 'eventInLine', opt)
 opt.context = transformProps('context', 'contextInLine', opt)
-opt.file = require(path.resolve(process.cwd(), opt.file))
+opt.file = path.resolve(process.cwd(), opt.file)
 
 const { file, handler, event, context, env } = opt
 
