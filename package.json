@@ -1,10 +1,10 @@
 {
   "name": "lambda-local-test",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Lambda local test",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {
-    "lambdatest": "bin/index.js"
+    "lambdatest": "lib/bin/index.js"
   },
   "directories": {
     "test": "test"
@@ -28,7 +28,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "babel src -d ."
+    "build": "babel src -d ./lib"
   },
   "repository": {
     "type": "git",
